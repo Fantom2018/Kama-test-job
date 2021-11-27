@@ -1,23 +1,34 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 
-enum ColorEvent{blue, green}
+enum ColorEvent {ivent_blue, ivent_green}
 
-class ColorBloc extends Bloc<ColorEvent, Color>{
+  class ColorBloc extends Bloc<ColorEvent, Color> {
+  ColorBloc(Color initialState) : super(Color(0xFF4444ff));
 
-  Color _color = Colors.blue;
 
 
-  ColorBloc(Color initialState) : super(initialState ) ;
 
-  @override
+  
+
   Color get initialState => Colors.blue;
-  @override
+
   Stream<Color> mapEventToState(ColorEvent event) async*{
-    _color = (event == ColorEvent.blue) ? Colors.blue : Colors.green;
-    yield _color;
+    switch (event){
+      case ColorEvent.ivent_blue:
+      yield state;
+      break;
+      case ColorEvent.ivent_green:
+      yield state;
+      break;
+    }
+    throw UnimplementedError();
   }
 
+  @override
+  noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }

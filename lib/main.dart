@@ -12,25 +12,27 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
+
   const MyApp({Key? key}) : super(key: key);
 
-  //Color get initialState => null;
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      title: 'Flutter Demo',
-      home:  BlocProvider(
-          create: (BuildContext context) => ColorBloc(),
-          child: MyHomePage()),
-      
-      );
+    return  BlocProvider(
 
+      create: (BuildContext context) => ColorBloc(),
+      child: const MaterialApp(
+        title: 'Flutter Demo',
+        home: MyHomePage(),
+
+      ),
+    );
   }
 }
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -57,14 +59,14 @@ class MyHomePage extends StatelessWidget {
           FloatingActionButton(
             backgroundColor: Colors.blue,
             onPressed: (){
-              _bloc.add(ColorEvent.blue);
+              _bloc.add(ColorEvent.ivent_blue);
             },
           ),
           const SizedBox(width: 10),
           FloatingActionButton(
             backgroundColor: Colors.green,
             onPressed: (){
-              _bloc.add(ColorEvent.green);
+              _bloc.add(ColorEvent.ivent_green);
             },
           ),
         ],
